@@ -35,10 +35,17 @@
         "lint:eslint": "eslint . --cache --cache-location .cache/.eslintcache",
         "lint:eslint:fix": "eslint . --fix --cache --cache-location .cache/.eslintcache",
         "lint:stylelint": "stylelint --c ./stylelint.config.mjs **/*.css",
-        "lint:stylelint:fix": "stylelint -c ./stylelint.config.mjs --fix **/*.css"
+        "lint:stylelint:fix": "stylelint -c ./stylelint.config.mjs --fix **/*.css",
+        "auth:generate": "pnpx @better-auth/cli generate --config ./src/lib/auth/auth.ts --output ./src/drizzle/schema/new-auth-schema.ts --yes",
+        "auth:secret": "pnpx @better-auth/cli secret",
+        "db:generate": "drizzle-kit generate",
+        "db:migrate": "drizzle-kit migrate",
+        "db:studio": "drizzle-kit studio",
+        "db:push": "drizzle-kit push"
     },
     "dependencies": {
         "@neondatabase/serverless": "^1.0.2",
+        "better-auth": "^1.3.34",
         "dotenv": "^17.2.3",
         "drizzle-orm": "^0.44.7",
         "next": "^16.0.1",

@@ -3,14 +3,15 @@
     "compilerOptions": {
         "paths": {
             "@/*": ["./src/*"],
-            "@components/*": ["./src/components/*"]
+            "@components/*": ["./src/components/*"],
+            "@lib/*": ["./src/lib/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@drizzle/*": ["./src/drizzle/*"]
         }
     },
     "include": [
         "next-env.d.ts",
-        "src/app/**/*.ts",
-        "src/app/**/*.tsx",
-        "src/components/**/*.tsx",
+        "src",
         "client.d.ts",
         ".next/types/**/*.ts",
         ".next/dev/types/**/*.ts"
