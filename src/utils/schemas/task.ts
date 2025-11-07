@@ -33,7 +33,8 @@ export const createTaskSchema = z.object({
                 return date >= today;
             },
             {
-                message: 'Fälligkeitsdatum muss heute oder in der Zukunft liegen.',
+                message:
+                    'Fälligkeitsdatum muss heute oder in der Zukunft liegen.',
             }
         ),
 
