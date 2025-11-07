@@ -1,0 +1,42 @@
+.profile-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacer-sm);
+}
+
+.profile-list-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--spacer-sm);
+    padding: var(--spacer-sm) 0;
+    border-bottom: 1px solid rgb(var(--color-black-rgb) / 6%);
+}
+
+.profile-list-item:last-child {
+    border-bottom: none;
+}
+
+.profile-list-meta {
+    width: 100%;
+}
+
+.profile-list-link {
+    color: var(--color-primary);
+    font-size: var(--fs-2);
+}
+
+.profile-list-created {
+    color: var(--color-text-muted);
+    font-size: var(--fs-n1);
+}
+
+.profile-list-rename-form {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: var(--spacer-sm);
+    background: rgb(var(--color-secondary-rgb) / 6%);
+    border-radius: var(--border-radius-xl);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgb(var(--color-secondary-rgb) / 18%);
+}

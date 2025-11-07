@@ -1,0 +1,91 @@
+.tasks-page-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacer-2xl);
+}
+
+.task-empty {
+    color: var(--color-text-muted);
+    margin: var(--spacer-0);
+}
+
+.task-list {
+    display: grid;
+    gap: var(--spacer-sm);
+    list-style: none;
+    padding: 0;
+    margin: var(--spacer-0);
+}
+
+.task-list-item {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacer-2xs);
+    padding: 0.9rem 1.1rem;
+    border-radius: var(--border-radius-xl);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    transition:
+        border-color var(--transition-duration) ease,
+        background-color var(--transition-duration) ease;
+    border: 1px solid rgb(15 42 50 / 8%);
+    font: inherit;
+}
+
+.task-list-item:hover,
+.task-list-item:focus-visible {
+    outline: none;
+    border-color: var(--color-secondary);
+}
+
+.task-list-item:focus-visible {
+    border-color: var(--color-secondary);
+}
+
+.task-list-item-overdue {
+    background:
+        linear-gradient(
+            135deg,
+            rgb(var(--color-primary-rgb) / 18%),
+            rgb(var(--color-primary-rgb) / 4%)
+        ),
+        var(--color-surface);
+    border-color: rgb(var(--color-primary-rgb) / 32%);
+    color: var(--color-primary-hover);
+}
+
+.task-list-item-completed {
+    background:
+        linear-gradient(
+            135deg,
+            rgb(var(--color-success-rgb) / 12%),
+            rgb(var(--color-success-rgb) / 8%)
+        ),
+        var(--color-white);
+    border-color: rgb(var(--color-success-rgb) / 26%);
+}
+
+.task-list-title {
+    font-weight: 700;
+    font-size: var(--fs-2);
+}
+
+.task-list-meta {
+    display: flex;
+    gap: var(--spacer-2xs);
+    flex-wrap: wrap;
+    color: var(--color-text-muted);
+    font-size: var(--fs-1);
+}
+
+.task-list-due {
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.task-list-due-overdue {
+    color: var(--color-primary);
+}

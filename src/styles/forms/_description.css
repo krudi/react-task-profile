@@ -1,0 +1,5 @@
+.form-description {
+    margin: var(--spacer-0);
+    font-size: var(--fs-1);
+    color: var(--color-text-muted);
+}
