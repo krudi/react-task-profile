@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@utils/cn';
 import type React from 'react';
 import { forwardRef } from 'react';
 
@@ -9,7 +10,7 @@ export interface CheckboxProps
 }
 
 export const FormCheckbox = forwardRef<HTMLInputElement, CheckboxProps>(
-    ({ onCheckedChange, onChange, ...props }, ref) => {
+    ({ onCheckedChange, onChange, className, ...props }, ref) => {
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             onChange?.(e);
             onCheckedChange?.(e.target.checked);
@@ -20,6 +21,7 @@ export const FormCheckbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 ref={ref}
                 type="checkbox"
                 onChange={handleChange}
+                className={cn('form-checkbox', className)}
                 {...props}
             />
         );

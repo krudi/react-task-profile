@@ -1,9 +1,9 @@
 import { cn } from '@utils/cn';
 import { forwardRef } from 'react';
 
-export const FormInput = forwardRef<
-    HTMLInputElement,
-    React.InputHTMLAttributes<HTMLInputElement>
+export const FormTextarea = forwardRef<
+    HTMLTextAreaElement,
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >(({ className, ...props }, ref) => {
     const dataInvalid = (
         props as Record<string, boolean | 'true' | 'false' | undefined>
@@ -15,11 +15,11 @@ export const FormInput = forwardRef<
         dataInvalid === true;
 
     return (
-        <input
+        <textarea
             ref={ref}
             className={cn(
-                'form-input',
-                invalid && 'form-input-error',
+                'form-textarea',
+                invalid && 'form-textarea-error',
                 className
             )}
             {...props}
@@ -27,4 +27,4 @@ export const FormInput = forwardRef<
     );
 });
 
-FormInput.displayName = 'FormInput';
+FormTextarea.displayName = 'FormTextarea';
