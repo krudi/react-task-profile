@@ -6,18 +6,14 @@ export default function GlobalError({ reset }: { reset: () => void }) {
     return (
         <html>
             <body>
-                <section>
-                    <h3>
-                        <b>Page:</b> global-error.tsx
-                    </h3>
+                <section aria-label="Globale Fehlermeldung mit Wiederholungsaktion">
+                    <h1>Etwas ist schiefgelaufen!</h1>
 
-                    <hr className="hr" />
-
-                    <h4>Something went wrong!</h4>
-                    <p>
+                    <div>
                         <NextError statusCode={0} />
-                    </p>
-                    <button onClick={() => reset()}>Try again</button>
+                    </div>
+
+                    <button onClick={() => reset()}>Erneut versuchen</button>
                 </section>
             </body>
         </html>
