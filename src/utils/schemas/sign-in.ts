@@ -1,12 +1,15 @@
 import { z } from 'zod';
 
 export const signInSchema = z.object({
-    email: z.string().min(1, 'Email is required.').email('Invalid email.'),
+    email: z
+        .string()
+        .min(1, 'E-Mail ist erforderlich.')
+        .email('Ungültige E-Mail-Adresse.'),
     password: z
         .string()
-        .min(1, 'Password is required.')
-        .min(8, 'Password must be at least 8 characters.')
-        .max(32, 'Password must not exceed 32 characters.'),
+        .min(1, 'Passwort ist erforderlich.')
+        .min(8, 'Passwort muss mindestens 8 Zeichen lang sein.')
+        .max(32, 'Passwort darf höchstens 32 Zeichen lang sein.'),
     rememberMe: z.boolean().optional(),
 });
 
