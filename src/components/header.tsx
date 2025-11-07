@@ -7,6 +7,10 @@ export default function Header() {
             aria-label="Anwendungs-Hero"
         >
             <div className="app-header-wrapper">
+                <span className="app-header-note">
+                    Jedes Profil zeigt klar zugeordnete Aufgaben und Status.
+                </span>
+
                 <h1 className="app-header-title">
                     Erstelle Profile, ordne Aufgaben zu und verfolge
                     Fälligkeiten.
@@ -16,10 +20,6 @@ export default function Header() {
                     Lege Profile für Teammitglieder an, plane Deadlines und
                     behalte den Fortschritt im Blick – zentral an einem Ort.
                 </p>
-
-                <span className="app-header-note">
-                    Jedes Profil zeigt klar zugeordnete Aufgaben und Status.
-                </span>
 
                 <div className="app-header-actions">
                     <Link

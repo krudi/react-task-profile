@@ -73,7 +73,6 @@
     --spacer-lg: 1.5rem;
     --spacer-xl: 1.75rem;
     --spacer-2xl: 2rem;
-    --spacer-3xl: 2.25rem;
     --spacer-4xl: 2.5rem;
 
     /* Heading font size */
@@ -107,7 +106,6 @@
     --border-radius-lg: 1rem;
     --border-radius-xl: 1.125rem;
     --border-radius-2xl: 1.375rem;
-    --border-radius-3xl: 1.75rem;
 
     /* Utilities */
     --transition-duration: 0.1s;

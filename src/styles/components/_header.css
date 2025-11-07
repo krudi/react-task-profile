@@ -1,5 +1,5 @@
 .app-header {
-    border-radius: var(--border-radius-3xl);
+    border-radius: var(--border-radius-sm);
     border: 1px solid rgb(var(--color-secondary-rgb) / 5%);
     overflow: hidden;
     display: grid;
@@ -49,6 +49,7 @@
 }
 
 .app-header-note {
+    width: fit-content;
     padding: 0.6rem 1rem;
     background: rgb(var(--color-secondary-rgb) / 8%);
     display: inline-flex;
