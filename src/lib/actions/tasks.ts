@@ -6,6 +6,7 @@ import { tasks } from '@drizzle/schema/tasks';
 import { auth } from '@lib/auth/auth';
 import {
     createTaskSchema,
+    deleteTaskSchema,
     getTasksSchema,
     toggleTaskSchema,
 } from '@utils/schemas/task';
@@ -138,4 +139,28 @@ export const toggleTask = async (
     }
 
     return toTaskDto(updated);
+};
+
+export const deleteTask = async (
+    input: Parameters<typeof deleteTaskSchema.parse>[0]
+): Promise<void> => {
+    const userId = await requireUserId();
+    const { taskId } = deleteTaskSchema.parse(input);
+
+    const [taskWithProfile] = await db
+        .select({
+            id: tasks.id,
+            profileId: tasks.profileId,
+            userId: profiles.userId,
+        })
+        .from(tasks)
+        .innerJoin(profiles, eq(tasks.profileId, profiles.id))
+        .where(eq(tasks.id, taskId))
+        .limit(1);
+
+    if (!taskWithProfile || taskWithProfile.userId !== userId) {
+        throw new Error('Task not found.');
+    }
+
+    await db.delete(tasks).where(eq(tasks.id, taskId));
 };

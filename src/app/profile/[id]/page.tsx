@@ -18,7 +18,12 @@ import { useParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { createTask, getTasks, toggleTask } from '@/lib/actions/tasks';
+import {
+    createTask,
+    deleteTask,
+    getTasks,
+    toggleTask,
+} from '@/lib/actions/tasks';
 import type { Task } from '@/types';
 import { formatDate } from '@/utils/format-date';
 
@@ -74,6 +79,18 @@ export default function ProfileTasksPage() {
         },
     });
 
+    const deleteTaskMutation = useMutation({
+        mutationFn: (taskId: string) => deleteTask({ taskId }),
+        onSuccess: async (_deletedTask, taskId) => {
+            await queryClient.invalidateQueries({
+                queryKey: ['tasks', profileId],
+            });
+            if (activeTask?.id === taskId) {
+                setActiveTask(null);
+            }
+        },
+    });
+
     const onSubmit = (payload: CreateTaskType) => {
         if (!profileId) return;
         createTaskMutation.mutate({
@@ -119,12 +136,14 @@ export default function ProfileTasksPage() {
 
             {(error ||
                 createTaskMutation.error ||
-                toggleTaskMutation.error) && (
+                toggleTaskMutation.error ||
+                deleteTaskMutation.error) && (
                 <Alert variant="destructive">
                     <AlertDescription>
                         {error?.message ??
                             createTaskMutation.error?.message ??
-                            toggleTaskMutation.error?.message}
+                            toggleTaskMutation.error?.message ??
+                            deleteTaskMutation.error?.message}
                     </AlertDescription>
                 </Alert>
             )}
@@ -152,6 +171,10 @@ export default function ProfileTasksPage() {
                         tasks={openTasks}
                         emptyMessage="Noch keine Aufgaben."
                         onTaskSelect={openTaskDetails}
+                        onTaskDelete={(task) =>
+                            deleteTaskMutation.mutate(task.id)
+                        }
+                        disableDelete={deleteTaskMutation.isPending}
                         isLoading={isPending}
                         variant="open"
                     />

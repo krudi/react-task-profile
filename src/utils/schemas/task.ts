@@ -57,3 +57,10 @@ export const getTasksSchema = z.object({
 });
 
 export type GetTasksType = z.infer<typeof getTasksSchema>;
+
+// Delete Task
+export const deleteTaskSchema = z.object({
+    taskId: taskIdSchema,
+});
+
+export type DeleteTaskType = z.infer<typeof deleteTaskSchema>;

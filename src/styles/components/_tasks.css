@@ -22,23 +22,13 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: var(--spacer-2xs);
-    padding: 0.9rem 1.1rem;
+    gap: var(--spacer-3xs);
+    padding: 1rem;
     border-radius: var(--border-radius-xl);
     background: var(--color-surface);
     color: var(--color-text);
-    cursor: pointer;
-    transition:
-        border-color var(--transition-duration) ease,
-        background-color var(--transition-duration) ease;
     border: 1px solid rgb(15 42 50 / 8%);
     font: inherit;
-}
-
-.task-list-item:hover,
-.task-list-item:focus-visible {
-    outline: none;
-    border-color: var(--color-secondary);
 }
 
 .task-list-item:focus-visible {
@@ -58,18 +48,18 @@
 }
 
 .task-list-item-completed {
-    background:
-        linear-gradient(
-            135deg,
-            rgb(var(--color-success-rgb) / 12%),
-            rgb(var(--color-success-rgb) / 8%)
-        ),
-        var(--color-white);
-    border-color: rgb(var(--color-success-rgb) / 26%);
+    border-color: rgb(var(--color-success-rgb) / 100%);
+}
+
+.task-list-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacer-2xs);
 }
 
 .task-list-title {
-    font-weight: 700;
+    color: var(--color-primary);
     font-size: var(--fs-2);
 }
 

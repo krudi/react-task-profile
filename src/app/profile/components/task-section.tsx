@@ -12,6 +12,8 @@ type TaskSectionProps = {
     onTaskSelect: (task: Task) => void;
     isLoading?: boolean;
     variant: 'open' | 'completed';
+    onTaskDelete?: (task: Task) => void;
+    disableDelete?: boolean;
 };
 
 export function TaskSection({
@@ -21,6 +23,8 @@ export function TaskSection({
     onTaskSelect,
     isLoading = false,
     variant,
+    onTaskDelete,
+    disableDelete = false,
 }: TaskSectionProps) {
     return (
         <>
@@ -44,13 +48,28 @@ export function TaskSection({
 
                         return (
                             <li key={task.id}>
-                                <button
-                                    type="button"
-                                    onClick={() => onTaskSelect(task)}
-                                    className={itemClasses}
-                                >
-                                    <div className="task-list-title">
-                                        {task.title}
+                                <div className={itemClasses}>
+                                    <div className="task-list-item-header">
+                                        <button
+                                            type="button"
+                                            className="btn btn-ghost task-list-title"
+                                            onClick={() => onTaskSelect(task)}
+                                        >
+                                            {task.title}
+                                        </button>
+                                        {variant === 'open' && onTaskDelete && (
+                                            <button
+                                                type="button"
+                                                className="btn btn-danger"
+                                                onClick={(event) => {
+                                                    event.stopPropagation();
+                                                    onTaskDelete(task);
+                                                }}
+                                                disabled={disableDelete}
+                                            >
+                                                Entfernen
+                                            </button>
+                                        )}
                                     </div>
                                     <div className="task-list-meta">
                                         <span
@@ -66,7 +85,7 @@ export function TaskSection({
                                             <span>{task.description}</span>
                                         )}
                                     </div>
-                                </button>
+                                </div>
                             </li>
                         );
                     })}
