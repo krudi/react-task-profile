@@ -1,0 +1,28 @@
+.card {
+    max-width: 460px;
+    margin: var(--spacer-0) auto;
+    margin-top: var(--spacer-4xl);
+    background: var(--color-surface);
+    border-radius: var(--border-radius-3xl);
+    padding: clamp(2rem, 6vw, 3rem);
+    display: grid;
+    gap: var(--spacer-lg);
+    border: 1px solid rgb(var(--color-border-strong-rgb) / 12%);
+}
+
+.card-header {
+    display: grid;
+    gap: var(--spacer-2xs);
+}
+
+.card-title {
+    margin: var(--spacer-0);
+    font-size: var(--fs-5);
+    font-weight: 800;
+    color: var(--color-secondary);
+}
+
+.card-subtitle {
+    margin: var(--spacer-0);
+    color: var(--color-text-muted);
+}

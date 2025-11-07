@@ -1,0 +1,22 @@
+.alert {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-2xs);
+    padding: 1rem 1.25rem;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    border: 1px solid rgb(var(--color-primary-rgb) / 28%);
+    background: rgb(var(--color-primary-rgb) / 12%);
+    color: var(--color-primary-hover);
+}
+
+.alert-destructive {
+    background: rgb(var(--color-danger-rgb) / 12%);
+    border-color: rgb(var(--color-danger-rgb) / 25%);
+    color: var(--color-danger-hover);
+}
+
+.alert-description {
+    margin: var(--spacer-0);
+    font-weight: 500;
+}

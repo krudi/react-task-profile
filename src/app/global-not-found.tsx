@@ -1,20 +1,15 @@
 export default function NotFound() {
     return (
         <>
-            <html lang="en">
+            <html lang="de">
                 <body>
-                    <section>
-                        <h3>
-                            <b>Page:</b> not-found.tsx
-                        </h3>
+                    <section aria-label="Fehlermeldung 404 Seite nicht gefunden">
+                        <h1>404 – Seite nicht gefunden</h1>
 
-                        <hr className="hr" />
-
-                        <h4>404 Not Found</h4>
                         <p>
-                            The HTTP 404 Not Found response status code
-                            indicates that the server cannot find the requested
-                            resource.
+                            Der HTTP-Statuscode 404 weist darauf hin, dass die
+                            angeforderte Ressource auf dem Server nicht gefunden
+                            werden konnte.
                         </p>
                     </section>
                 </body>

@@ -1,0 +1,6 @@
+.form-text-error {
+    margin-block-start: var(--spacer-3xs);
+    display: block;
+    font-size: var(--fs-1);
+    color: rgb(var(--color-danger-rgb) / 90%);
+}

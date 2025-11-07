@@ -1,0 +1,7 @@
+.app-section {
+    margin-block-end: var(--section-margin-block-end);
+    background: var(--color-surface);
+    border: 1px solid rgb(var(--color-secondary-rgb) / 8%);
+    border-radius: var(--border-radius-sm);
+    padding: 2rem;
+}

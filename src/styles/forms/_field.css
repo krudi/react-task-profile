@@ -1,0 +1,13 @@
+.form-field {
+    margin-block-end: var(--spacer-2xs);
+}
+
+.form-field-horizontal {
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-3xs);
+}
+
+.form-field-horizontal .form-label {
+    margin-block-end: 0;
+}

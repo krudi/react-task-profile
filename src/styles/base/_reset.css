@@ -14,7 +14,7 @@ figure,
 blockquote,
 dl,
 dd {
-    margin: 0;
+    margin: var(--spacer-0);
 }
 
 ul[role='list'],
@@ -27,7 +27,6 @@ html:focus-within {
 }
 
 body {
-    min-height: 100vh;
     text-rendering: optimizespeed;
     line-height: 1.5;
 }

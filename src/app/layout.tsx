@@ -1,12 +1,11 @@
 import '@/styles/styles.css';
 
+import Providers from '@app/providers';
 import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
 import { headers } from 'next/headers';
 import type { ReactNode } from 'react';
 
-import Footer from '@/components/footer';
-import Header from '@/components/header';
 import Navigation from '@/components/navigation';
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -26,7 +25,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
             description:
                 'Web app for creating user profiles and managing tasks with titles, descriptions, and due dates using a PostgreSQL database.',
             url: `https://${domain}`,
-            siteName: 'Next.js',
+            siteName: 'react-task-profile',
             images: [
                 {
                     url: `https://${domain}/meta-tags/page-view.webp`,
@@ -35,13 +34,13 @@ export const generateMetadata = async (): Promise<Metadata> => {
                     alt: 'Alternative description',
                 },
             ],
-            locale: 'en-US',
+            locale: 'de-DE',
             type: 'website',
         },
         twitter: {
             title: 'react-task-profile',
             description:
-                'My template with Next.js built on React with focus on performance and best practices.',
+                'Web app for creating user profiles and managing tasks with titles, descriptions, and due dates using a PostgreSQL database.',
             card: 'summary_large_image',
             creator: '@twitter',
             creatorId: '1467726470533754880',
@@ -181,7 +180,7 @@ const roboto = Roboto({
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html
-            lang="en"
+            lang="de"
             dir="ltr"
             className={roboto.className}
         >
@@ -204,15 +203,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 />
             </head>
             <body>
-                <div className="container">
-                    <Navigation />
+                <Providers>
+                    <div className="container">
+                        <Navigation />
 
-                    <Header />
-
-                    <main className="main">{children}</main>
-
-                    <Footer />
-                </div>
+                        <main aria-label="Hauptinhalt">{children}</main>
+                    </div>
+                </Providers>
             </body>
         </html>
     );

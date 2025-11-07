@@ -1,0 +1,7 @@
+.form-label {
+    margin-block-end: var(--spacer-3xs);
+    display: block;
+    font-weight: 600;
+    font-size: var(--fs-1);
+    color: var(--color-secondary);
+}

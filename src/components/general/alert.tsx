@@ -1,18 +1,42 @@
-import type { ReactNode } from 'react';
+import { cn } from '@utils/cn';
+import type { HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
-interface AlertProps {
-    children: ReactNode;
+type AlertProps = HTMLAttributes<HTMLDivElement> & {
     variant?: 'default' | 'destructive';
-}
+};
 
-export function Alert({ children }: AlertProps) {
-    return <div>{children}</div>;
-}
+export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+    { className, variant = 'default', ...props },
+    ref
+) {
+    return (
+        <div
+            ref={ref}
+            className={cn(
+                'alert',
+                variant !== 'default' && `alert-${variant}`,
+                className
+            )}
+            {...props}
+        />
+    );
+});
 
-interface AlertDescriptionProps {
-    children: ReactNode;
-}
+type AlertDescriptionProps = HTMLAttributes<HTMLParagraphElement>;
 
-export function AlertDescription({ children }: AlertDescriptionProps) {
-    return <div>{children}</div>;
-}
+export const AlertDescription = forwardRef<
+    HTMLParagraphElement,
+    AlertDescriptionProps
+>(function AlertDescription({ className, ...props }, ref) {
+    return (
+        <p
+            ref={ref}
+            className={cn('alert-description', className)}
+            {...props}
+        />
+    );
+});
+
+Alert.displayName = 'Alert';
+AlertDescription.displayName = 'AlertDescription';
