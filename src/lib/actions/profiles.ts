@@ -116,22 +116,22 @@ export const renameProfile = async (
     const { profileId, name } = renameProfileSchema.parse(input);
     const normalizedName = name.trim();
 
-    const [profile] = await db
-        .select()
-        .from(profiles)
-        .where(eq(profiles.id, profileId))
-        .limit(1);
-
-    if (!profile || profile.userId !== userId) {
-        throw new Error('Profile not found.');
-    }
-
-    const duplicates = await db
-        .select({ id: profiles.id, name: profiles.name })
+    const rows = await db
+        .select({
+            id: profiles.id,
+            name: profiles.name,
+            userId: profiles.userId,
+        })
         .from(profiles)
         .where(eq(profiles.userId, userId));
 
-    const hasDuplicate = duplicates.some(
+    const profile = rows.find((row) => row.id === profileId);
+
+    if (!profile) {
+        throw new Error('Profile not found.');
+    }
+
+    const hasDuplicate = rows.some(
         (existing) =>
             existing.id !== profileId &&
             existing.name.trim().toLocaleLowerCase() ===
