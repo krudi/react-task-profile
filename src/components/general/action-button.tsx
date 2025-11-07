@@ -1,10 +1,13 @@
 'use client';
 
+import { cn } from '@utils/cn';
 import { Loader2 } from 'lucide-react';
 import type * as React from 'react';
 
 const ACTIONS = {
-    signIn: { label: 'Sign In' },
+    signIn: { label: 'Anmelden' },
+    createProfile: { label: 'Profil erstellen' },
+    signOut: { label: 'Abmelden' },
 } as const;
 
 type Action = keyof typeof ACTIONS;
@@ -24,20 +27,22 @@ export function ActionButton({
 }: ActionButtonProps) {
     const { label } = ACTIONS[action];
     const isDisabled = isLoading || disabled;
-
     return (
         <button
             {...props}
             disabled={isDisabled}
             aria-disabled={isDisabled}
             aria-busy={isLoading}
-            className={className}
+            className={cn('btn', 'btn-accent', className)}
         >
             {isLoading && (
                 <>
-                    <Loader2 aria-hidden="true" />
+                    <Loader2
+                        aria-hidden="true"
+                        className="btn-spinner"
+                    />
                     <span className="sr-only">
-                        Processing {label.toLowerCase()}
+                        {`Verarbeite ${label.toLowerCase()}`}
                     </span>
                 </>
             )}
