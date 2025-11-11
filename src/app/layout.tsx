@@ -2,7 +2,6 @@ import '@/styles/styles.css';
 
 import Providers from '@app/providers';
 import type { Metadata, Viewport } from 'next';
-import { Roboto } from 'next/font/google';
 import { headers } from 'next/headers';
 import type { ReactNode } from 'react';
 
@@ -171,18 +170,11 @@ export const viewport: Viewport = {
     ],
 };
 
-const roboto = Roboto({
-    weight: ['400', '500', '700'],
-    subsets: ['latin'],
-    display: 'swap',
-});
-
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html
             lang="de"
             dir="ltr"
-            className={roboto.className}
         >
             <head>
                 <meta
