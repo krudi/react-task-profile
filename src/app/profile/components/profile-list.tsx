@@ -10,6 +10,7 @@ import { formatDate } from '@utils/format-date';
 import Link from 'next/link';
 import { useState } from 'react';
 
+import Skeleton from '@/components/general/skeleton';
 import type { Profile } from '@/types';
 
 type ProfileListProps = {
@@ -71,7 +72,7 @@ export function ProfileList({
     };
 
     if (isLoading) {
-        return <p>Profile werden geladen…</p>;
+        return <Skeleton />;
     }
 
     if (profiles.length === 0) {

@@ -1,6 +1,5 @@
 'use client';
 
-import Loading from '@app/loading';
 import { ProfileCreateForm, ProfileList } from '@app/profile/components';
 import {
     Alert,
@@ -100,7 +99,7 @@ export default function ProfilePage() {
         await renameProfileMutation.mutateAsync({ profileId, name });
     };
 
-    if (authPending) return <Loading />;
+    if (authPending) return;
 
     if (!session) redirect('/auth/sign-in');
 

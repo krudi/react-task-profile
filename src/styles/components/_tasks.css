@@ -4,11 +4,6 @@
     gap: var(--spacer-2xl);
 }
 
-.task-empty {
-    color: var(--color-text-muted);
-    margin: var(--spacer-0);
-}
-
 .task-list {
     display: grid;
     gap: var(--spacer-sm);

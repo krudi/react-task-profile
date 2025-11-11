@@ -3,6 +3,7 @@
 import { cn } from '@utils/cn';
 import { formatDate, isPastDate } from '@utils/format-date';
 
+import Skeleton from '@/components/general/skeleton';
 import type { Task } from '@/types';
 
 type TaskSectionProps = {
@@ -30,9 +31,9 @@ export function TaskSection({
         <>
             <h2>{title}</h2>
             {isLoading ? (
-                <p>Wird geladen…</p>
+                <Skeleton />
             ) : tasks.length === 0 ? (
-                <p className="task-empty">{emptyMessage}</p>
+                <p>{emptyMessage}</p>
             ) : (
                 <ul className="task-list">
                     {tasks.map((task) => {

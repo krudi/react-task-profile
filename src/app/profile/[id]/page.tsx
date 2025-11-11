@@ -189,6 +189,7 @@ export default function ProfileTasksPage() {
                         tasks={completedTasks}
                         emptyMessage="Noch keine erledigten Aufgaben."
                         onTaskSelect={openTaskDetails}
+                        isLoading={isPending}
                         variant="completed"
                     />
                 </section>
