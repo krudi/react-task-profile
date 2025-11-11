@@ -4,12 +4,12 @@ import { z } from 'zod';
 export const profileNameSchema = z
     .string()
     .trim()
-    .min(1, 'Name ist erforderlich.')
-    .max(60, 'Name darf höchstens 60 Zeichen lang sein.');
+    .min(1, 'Name ist erforderlich')
+    .max(60, 'Name darf höchstens 60 Zeichen lang sein');
 
 export const profileIdSchema = z
     .string()
-    .uuid('Profilkennung muss eine gültige UUID sein.');
+    .uuid('Profilkennung muss eine gültige UUID sein');
 
 // Create Profile
 export const createProfileSchema = z.object({

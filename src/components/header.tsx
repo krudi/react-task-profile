@@ -7,7 +7,7 @@ export default function Header() {
             aria-label="Anwendungs-Hero"
         >
             <span className="app-header-note">
-                Jedes Profil zeigt klar zugeordnete Aufgaben und Status.
+                Jedes Profil zeigt klar zugeordnete Aufgaben und Status
             </span>
 
             <div className="app-header-wrapper">
@@ -29,6 +29,14 @@ export default function Header() {
                     className="btn btn-primary"
                 >
                     Profile ansehen
+                </Link>
+
+                <Link
+                    href="/auth/sign-in"
+                    scroll={false}
+                    className="btn btn-secondary"
+                >
+                    Anmelden
                 </Link>
             </div>
         </header>
